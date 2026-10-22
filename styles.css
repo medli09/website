@@ -1,0 +1,169 @@
+:root {
+    --bord-rad: 10px;
+    --bord-w: 3px;
+    --grad: linear-gradient(135deg,
+            #74c7ecaa,
+            #89b4fa,
+            #cba6f7,
+            #8839ef);
+}
+
+@keyframes flash {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+
+    to {
+        filter: hue-rotate(1turn);
+    }
+}
+
+@font-face {
+    font-family: "Calamity Bold";
+    src: url(/fonts/CalamityBold.ttf);
+}
+
+@font-face {
+    font-family: "UbuntuMono";
+    src: url(/fonts/UbuntuMonoNerdFont-Regular.ttf);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+        Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-size: 16px;
+    background-color: black;
+}
+
+.nav {
+    width: calc(min(700px, 100vw) - 1em);
+    margin: 10px 20px;
+    gap: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+.nav>a {
+    height: 1.5em;
+}
+
+.nav>a>img {
+    height: 1.5em;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+}
+
+.nav>a>img:hover {
+    opacity: 1;
+}
+
+
+main {
+    min-height: 99vh;
+    padding: 0 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background-color: black;
+    color: #ccc;
+}
+
+main>div.out {
+    margin-inline: auto;
+    border-radius: var(--bord-rad);
+    width: min(700px, 100vw);
+    margin-left: 100px;
+    margin-right: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--grad);
+}
+
+main>div.out>div.in {
+    background-color: black;
+    width: calc(100% - var(--bord-w) - var(--bord-w));
+    margin: var(--bord-w);
+    border-radius: var(--bord-rad);
+}
+
+div.in>div.content {
+    padding: 10px;
+}
+
+.r {
+    border-radius: 10px;
+}
+
+.hi {
+    font-family: "Calamity Bold";
+    font-size: 2em;
+    display: inline;
+    margin-right: 0.1em;
+    margin-bottom: 0;
+    line-height: 0.75;
+}
+
+section {
+    margin: 10px;
+}
+
+section:not(.boring)::after {
+    border-bottom: 1px solid #fff2;
+    height: 10px;
+    width: 100%;
+    content: "";
+    display: block;
+    margin-bottom: 10px;
+}
+
+section.l {
+    text-align: left;
+}
+
+section>h1 {
+    margin: 0.5em;
+    font-size: 1.3em;
+    text-align: center;
+}
+
+a:hover {
+    color: #ccf !important;
+    animation: flash 1s linear infinite;
+}
+
+a:visited,
+a {
+    color: #ddd;
+}
+
+.link {
+
+    a,
+    .desc {
+        display: inline
+    }
+
+    a {
+        font-family: UbuntuMono, monospace;
+        text-decoration: none;
+        border: 1px solid #fff2;
+        border-radius: 5px;
+        padding: 0px 5px;
+
+        span {
+            background: var(--grad);
+            /* opacity: 0.9; */
+            background-clip: text;
+            color: #0000;
+            -webkit-background-clip: text;
+        }
+
+    }
+}
